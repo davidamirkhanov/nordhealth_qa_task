@@ -22,8 +22,11 @@ def customer_to_create():
 # browser and pages
 @pytest.fixture(scope="session")
 def browser_instance():
+    headless = bool(os.getenv("HEADLESS", False))
+    browser_type = os.getenv("BROWSER", "chromium")
+
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False, channel="chrome")
+        browser = p.chromium.launch(headless=headless, channel=browser_type)
         yield browser
         browser.close()
 
