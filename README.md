@@ -8,17 +8,14 @@ This repository contains an automated test suite created a test task for  **QA E
 
 ## Task Requirements
 
-- Write automated tests for the provided web application
-- Use Python with Playwright (or an alternative such as Selenium)
-- Implement at least three tests
-- Ensure tests are:
-  - Reliable
-  - Maintainable
-  - Scalable
-- Provide:
-  - Test code
-  - A brief explanation of the approach
-
+> Task: Write a few automated tests for the following site https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login
+> 1. Use Python with playwright (or any alternative such as Selenium). 
+> 2. Write a minimum of three tests 
+> 3. Make sure that the tests are reliable, maintainable, and scalable. 
+> 4. Share us the code and a brief explanation of your approach. 
+> 5. Please attempt to showcase your automation skills and experience with this task 
+> 
+> We expect that the task will take you approximately 2-3 hours to complete. Please let us know if you require any further information or have any questions about the task.
 ---
 
 ## Tech Stack
@@ -38,6 +35,7 @@ Sensitive test data (in this case link to website under test) is stored in .env 
 Other type of test data is test customers' information. This is not secret, so it is stored openly. In case if this data becomes sensitive, or if any production data will be used, this information can also be moved to .env file.
 To make data management easier, cutomers' information is stored in dataclass in tests/customers.py file. Dataclass allows testers to get information in different formats: as string, containing first and last name, or as list. If need arouses, other parameters can be added.
 
+There is also an option to run tests in Github Actions (This is the part where I showcase my automation skills and experience). In orger to trigger tests or check past runs, navigate to Actions tab in Github. Tests run automatically every day on midnight (GMT+0) 
 ## How to Run Tests Locally
 
 ### 1. Install dependencies
@@ -71,3 +69,4 @@ pytest login_tests.py
 ```
 pytest end_to_end_tests.py
 ```
+
