@@ -1,0 +1,24 @@
+name: Playwright Tests
+
+on: workflow_dispatch
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Install dependencies
+        run: |
+          pip install pytest pytest-playwright python-dotenv
+          playwright install
+      
+      - name: Run tests
+        env:
+          HEADLESS: "true" 
+          BROWSER: "chromium" 
+          MAIN_PAGE_URL: ${{ secrets.MAIN_PAGE_URL }} 
+        run: |
+          cd tests 
+          pytest login_tests.py 
+          pytest end_to_end_tests.py
