@@ -17,7 +17,7 @@ jobs:
         env:
           HEADLESS: "true" 
           BROWSER: "chromium" 
-          MAIN_PAGE_URL: ${{ secrets.MAIN_PAGE_URL }} 
+          MAIN_PAGE_URL: ${{ secrets.LOGIN_PAGE_URL }} 
         run: |
           cd tests 
           pytest login_tests.py 
