@@ -26,16 +26,18 @@ This repository contains an automated test suite created a test task for  **QA E
 
 ## Selected Approach
 
-In this task I decided to use Page Object pattern, because this is recommended approach to write tests for website UI. BasePage class contains methods and elements, that are available on every page. And child pages inherit them. 
+In this task I decided to use Page Object pattern, because this is recommended approach for writing UI tests. BasePage class contains methods and elements that are available on every page, and child pages inherit them.
 
-Tests are separated in files by type and by page under test. In future more complex test structure could be implemented, e.g. separate folders for functional, end-to-end, performance tests etc. But for now it is not needed.
+Tests are separated into files by type and by page under test. In future, more complex structure could be implemented, for example separate folders for functional, end-to-end and performance tests. But for now this is not needed.
 
-Sensitive test data (in this case link to website under test) is stored in .env file. This file is included in .gitignore. When running in CI or when sharing this repository, this link has to be shared separately.
+Sensitive test data (in this case URL of website under test) is stored in .env file, which is included in .gitignore. When running in CI or when sharing this repository, this value has to be provided separately.
 
-Other type of test data is test customers' information. This is not secret, so it is stored openly. In case if this data becomes sensitive, or if any production data will be used, this information can also be moved to .env file.
-To make data management easier, cutomers' information is stored in dataclass in tests/customers.py file. Dataclass allows testers to get information in different formats: as string, containing first and last name, or as list. If need arouses, other parameters can be added.
+Other test data is customers' information. This is not sensitive, so it is stored openly in the repository. If this changes, or if any production data will be used, it can also be excluded from git.
 
-There is also an option to run tests in Github Actions (This is the part where I showcase my automation skills and experience). In orger to trigger tests or check past runs, navigate to Actions tab in Github. Tests run automatically every day on midnight (GMT+0) 
+To make data management easier, customers' information is stored as dataclass in tests/customers.py. This allows to get customer data in different formats — as a full name string or as a list. More fields can be added if needed.
+
+There is also an option to run tests in Github Actions. To trigger tests manually or check past runs, navigate to Actions tab in Github. Tests also run automatically every day at midnight (GMT+0).
+
 ## How to Run Tests Locally
 
 ### 1. Install dependencies

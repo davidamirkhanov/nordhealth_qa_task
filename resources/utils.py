@@ -1,4 +1,6 @@
-def check_that_lists_are_equal(list_1, list_2):
+def check_that_lists_are_equal(list_1:list, list_2:list):
+    """Compares 2 lists. Returns True if they are equal, False otherwise.
+    Also prints difference between lists if there is one"""
     set_1 = set(list_1)
     set_2 = set(list_2)
     if set_1 == set_2:

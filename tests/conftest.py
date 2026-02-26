@@ -8,20 +8,24 @@ load_dotenv()
 # environment variables
 @pytest.fixture
 def login_page_url():
+    """Returns Login Page url"""
     return os.getenv("LOGIN_PAGE_URL")
 
 # test data
 @pytest.fixture
 def existing_customer():
+    """Returns existing Customer object"""
     return Customer(name="Hermoine", surname="Granger", postcode="E859AB")
 
 @pytest.fixture
 def customer_to_create():
+    """Returns non-existing Customer object"""
     return Customer(name="Dolores Jane", surname="Umbridge", postcode="SW1A0PW")
 
 # browser and pages
 @pytest.fixture(scope="session")
 def browser_instance():
+    """Opens browser instance. Default mode is headless, default browser is chromium"""
     headless = bool(os.getenv("HEADLESS", False))
     browser_type = os.getenv("BROWSER", "chromium")
 
@@ -32,6 +36,7 @@ def browser_instance():
 
 @pytest.fixture(scope="function")
 def page(browser_instance):
+    """Sets up default waits and returns page"""
     context = browser_instance.new_context()
     context.set_default_timeout(5000)
     context.set_default_navigation_timeout(20000)
@@ -41,6 +46,6 @@ def page(browser_instance):
 
 @pytest.fixture
 def go_to_login_page(page, login_page_url):
+    """Opens Login Page via direct url"""
     page.goto(login_page_url)
     yield page
-
