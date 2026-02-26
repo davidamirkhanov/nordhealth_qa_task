@@ -50,10 +50,10 @@ playwright install
 ###  2. Provide environment variables
 
 There are two methods to do it:
-1. Put .env file in the root folder. File should contain variable ***LOGIN_PAGE_URL=< URL >***
 
+a) Put .env file in the root folder. File should contain variable ***LOGIN_PAGE_URL=< URL >***
 
-2. Put the same variable in run configuration in your IDE.
+b) Put the same variable in run configuration in your IDE.
 
 
 ###  3. Navigate to tests folder: 
